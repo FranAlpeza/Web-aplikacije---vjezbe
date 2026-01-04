@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Moja prva stranica – Header</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap"
+    />
+    <style>
+      /* OVDJE ĆETE DODATI SVOJ CSS KOD */
+      /* 1. Reset osnovnih margina i paddinga za sve elemente */
+      * {
+        /* ovdje idu deklaracije za margin i padding */
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --primary: #1e5bb8;
+        --secondary: #ffcc00;
+        --neutral-bg: #f0f0f0;
+        --neutral-text: #333333;
+        --neutral-muted: #555555;
+        --neutral-border: #cccccc;
+        --white: #ffffff;
+        --set-city: #1e5bb8;
+        --set-technic: #ffcc00;
+        --set-friends: #666666;
+      }
+
+      /* 2. Osnovni stil za cijelu stranicu */
+      body {
+        /* ovdje idu deklaracije za font i pozadinsku boju stranice */
+        font-family: "Roboto", Arial, sans-serif;
+        background-color: var(--neutral-bg);
+        color: var(--neutral-text);
+      }
+
+      /* 3. Header dio stranice */
+      header {
+        /* ovdje idu deklaracije za pozadinsku boju, border, margin i padding */
+        background-color: var(--white);
+        border: 1px solid var(--neutral-border);
+        margin: 20px;
+        padding: 10px;
+      }
+
+      /* 4. Banner slika unutar headera */
+      .banner img {
+        /* ovdje idu deklaracije za širinu slike i da nema razmaka ispod slike */
+        width: 100%;
+        display: block;
+        border-bottom: 3px solid var(--secondary);
+      }
+
+      /* 5. Navigacija ispod bannera */
+      nav {
+        /* ovdje idu deklaracije za pozadinsku boju navigacije, padding i gornji margin */
+        background-color: var(--neutral-text);
+        padding: 8px;
+        margin-top: 10px;
+      }
+
+      /* 6. Lista u navigaciji */
+      ul {
+        /* ovdje idu deklaracije za list-style, margin i padding */
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      /* 7. Stavke liste u navigaciji */
+      li {
+        /* ovdje idu deklaracije za prikaz u jednom redu i razmak desno */
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      /* 8. Linkovi u navigaciji */
+      a {
+        /* ovdje idu deklaracije za text-decoration, boju teksta, border, padding i veličinu fonta */
+        text-decoration: none;
+        color: var(--white);
+        border: 1px solid var(--white);
+        padding: 5px 12px;
+        font-size: 14px;
+      }
+
+      /* 9. Glavni sadržaj (main) */
+      main {
+        /* ovdje idu deklaracije za pozadinsku boju, border, margin i padding */
+        background-color: var(--white);
+        border: 1px solid var(--neutral-border);
+        margin: 0 20px 20px 20px;
+        padding: 10px;
+      }
+
+      /* 10. Tekst u glavnom sadržaju */
+      main p {
+        /* ovdje ide deklaracija za razmak između redova (line-height) */
+        line-height: 1.2;
+      }
+
+      /* 11. Footer */
+      footer {
+        /* ovdje idu deklaracije za poravnanje teksta, veličinu fonta, boju teksta i donji margin */
+        text-align: center;
+        font-size: 12px;
+        color: var(--neutral-muted);
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "Lobster", "Georgia", serif;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: normal;
+        margin-top: 12px;
+        font-family: "Lobster", "Georgia", serif;
+      }
+
+      nav a[href]:visited {
+        color: var(--white);
+      }
+
+      nav a[href]:focus {
+        outline: 2px solid var(--secondary);
+      }
+
+      nav a[href]:hover {
+        color: var(--secondary);
+        text-decoration: underline;
+      }
+
+      nav a[href]:active {
+        color: var(--primary);
+      }
+
+      nav a[href="galerija.html"]::after {
+        content: " 🖼";
+      }
+
+      nav a[target="_blank"]::after {
+        content: " ↗";
+      }
+
+      /* ============================
+         GALERIJA SLIKA – VJEŽBA 18
+         ============================ */
+
+      .lego-gallery {
+        max-width: 900px;
+        margin: 24px auto 20px;
+        padding: 16px;
+        background-color: var(--white);
+        border: 2px solid var(--secondary);
+        border-radius: 10px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      }
+
+      .lego-gallery h2 {
+        margin-bottom: 6px;
+        font-size: 20px;
+      }
+
+      .lego-gallery p {
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+
+      .lego-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .gallery-item {
+        background-color: var(--white);
+        border: 3px solid var(--neutral-border);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        display: block;
+      }
+
+      .gallery-item figcaption {
+        padding: 10px 12px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .gallery-item[data-set="city"] {
+        border-color: var(--set-city);
+      }
+
+      .gallery-item[data-set="technic"] {
+        border-color: var(--set-technic);
+      }
+
+      .gallery-item[data-set="friends"] {
+        border-color: var(--set-friends);
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 16px rgba(0, 0, 0, 0.18);
+        border-color: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="banner">
+        <img src="lego_banner.jpg" alt="Lego" />
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="#">O nama</a></li>
+          <li><a href="#">Usluge</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="galerija.html">Galerija</a></li>
+          <li><a href="https://www.lego.com" target="_blank">LEGO</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="lego-gallery">
+        <h2>Galerija LEGO setova</h2>
+        <p>Ovdje možete vidjeti nekoliko LEGO setova iz naše kolekcije.</p>
+
+        <div class="lego-gallery-grid">
+          <figure class="gallery-item" data-set="city">
+            <img src="lego-set-1.webp" alt="LEGO City policijska postaja" />
+            <figcaption>LEGO City policijska postaja</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-set="technic">
+            <img src="lego-set-2.webp" alt="LEGO Technic trkaći auto" />
+            <figcaption>LEGO Technic trkaći auto</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-set="friends">
+            <img src="lego-set-3.webp" alt="LEGO Friends kafić" />
+            <figcaption>LEGO Friends kafić</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-set="city">
+            <img src="lego-set-4.webp" alt="LEGO City vatrogasci" />
+            <figcaption>LEGO City vatrogasci</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-set="technic">
+            <img src="lego-set-5.webp" alt="LEGO Technic helikopter" />
+            <figcaption>LEGO Technic helikopter</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-set="friends">
+            <img src="lego-set-6.webp" alt="LEGO Friends kuća" />
+            <figcaption>LEGO Friends kuća</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; Fran Alpeza</footer>
+  </body>
+</html>
